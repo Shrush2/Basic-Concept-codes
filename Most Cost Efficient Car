@@ -1,0 +1,61 @@
+import java.util.* ;
+import java.io.*; 
+/*
+
+    --------------------------- Car class for reference ---------------------------
+
+	class Car {
+    	public int priceOfCar;
+	    public int maintenanceCostPerMonth;
+	    public int numberOfkilometerCarRunInOneLiter;
+	    public int pricePerLiter;
+	    public int numberOfKilometerCarRunInaMonth;
+
+	    Car(int priceOfCar, int maintenanceCostPerMonth, int numberOfkilometerCarRunInOneLiter,
+	        int pricePerLiter, int numberOfKilometerCarRunInaMonth) {
+
+	        this.priceOfCar = priceOfCar;
+	        this.maintenanceCostPerMonth = maintenanceCostPerMonth;
+	        this.numberOfkilometerCarRunInOneLiter = numberOfkilometerCarRunInOneLiter;
+	        this.numberOfKilometerCarRunInaMonth = numberOfKilometerCarRunInaMonth;
+	        this.pricePerLiter = pricePerLiter;
+
+	    }
+	};
+*/
+
+public class Solution {
+	public static int mostCostEfficientCar(Car petrolCar, Car dieselCar) {
+  		// Write your code here.
+
+		  long petrolFuel = ((long) petrolCar.numberOfKilometerCarRunInaMonth *
+		   6 * petrolCar.pricePerLiter)/petrolCar.numberOfkilometerCarRunInOneLiter;
+
+		  long petrolTotal = petrolCar.priceOfCar + (long)petrolCar.maintenanceCostPerMonth * 6 + petrolFuel;
+
+		  long dieselFuel = ((long) dieselCar.numberOfKilometerCarRunInaMonth *
+		  6 * dieselCar.pricePerLiter) / dieselCar.numberOfkilometerCarRunInOneLiter;
+
+		  long dieselTotal = dieselCar.priceOfCar + (long)dieselCar.maintenanceCostPerMonth * 6 +dieselFuel;
+
+		  if(petrolTotal < dieselTotal) return 0;
+		  else if(dieselTotal < petrolTotal) return 1;
+		  else return -1;
+	}
+}
+
+
+You are given the price of ‘Petrol’ cars, the maintenance cost of the car per month, number of kilometers a car runs in one liter, amount of Petrol per liter, and number of kilometers a car can run per month. 
+Similar details are also given for ‘Diesel’ cars.
+Your task is to find which car ( ‘Petrol’ or ‘Diesel’ ) is efficient to use for an exact 6 month period. If your answer is ‘Petrol’ car then print ‘0’, if your answer is ‘Diesel’ car then print ‘1’, 
+if both the cars ( ‘Petrol’ and ‘Diesel’) are efficient then print ‘-1’.
+For example, consider both the cars:
+Price of ‘Petrol’ car = ‘780000’, the maintenance cost of ‘Petrol’ car per month = ‘500’, number of kilometers a ‘Petrol’ car can run in one liter  = ’35’, price of ‘Petrol’ per liter = ‘75’ and number of kilometers 
+a ‘Petrol’ car can run in a month = ‘145’.
+Similar details are given for ‘Diesel’ car, price of ‘Diesel’ car = ‘850000’, the maintenance cost of ‘Diesel’ car per month = ‘1000’, number of kilometers a ‘Diesel’ car can run in a one-liter = ’30’, price of 
+‘Diesel’ per liter = ‘80’ and number of kilometers a ‘Diesel’ car can run in a month = ‘200’.
+Then the ‘Petrol’ car will be more efficient, so we will print the integer ‘0’.
+
+
+T.C => O(1)
+S.C => O(1)
