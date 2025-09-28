@@ -1,0 +1,34 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int largestPrimeFactor(int n) {
+
+        // Step 1: Remove all factors of 2
+        int maxFactor = -1;
+        while(n % 2 == 0){
+            maxFactor = 2;
+            n /= 2;
+        }
+
+        // Step 2: Check odd numbers from 3 up to sqrt(n)
+         for(int i = 3; i * i <= n;i++){
+            while(n % i == 0){
+                maxFactor = i;
+                n /= i;
+            }
+        }
+        // Step 3: If n is still > 2, then n is prime
+            if(n > 2){
+            maxFactor = n;
+        }
+        return maxFactor;
+    }
+}
+
+
+You are given a positive integer ‘n’. Your task is to find the largest prime factor of this given positive integer.
+Note :
+If there is no prime factor of a given integer, then print -1.
+
+T.C => O(N + O(N logN))
+S.C => O(1)
