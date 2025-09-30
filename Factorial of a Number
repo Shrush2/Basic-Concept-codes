@@ -1,0 +1,47 @@
+----------1st BigInteger Approach---------------
+
+import java.math.BigInteger;
+public class Solution {
+	public static void factorial(int n) {
+		// Write your code here
+		System.out.println(fact(n));
+	}
+	public static BigInteger fact(int n){
+		if(n < 0) return BigInteger.ZERO;
+		else if(n == 0 || n == 1) return BigInteger.ONE;
+		return BigInteger.valueOf(n).multiply(fact(n-1));
+	}
+}
+T.C => O(N)
+S.C => O(N)
+
+
+
+------------------2nd iterative approach-----------------
+
+public static int  fact(int n){
+int fact = 1;
+if(n == 0 || n == 1) return 1;
+	for(int i = 2; i <= n; i++){
+  fact = fact * i;
+}
+return fact;
+}
+
+T.C => O(N)
+S.C => O(1)
+
+-------------3rd recurssive approach-----------------------
+public static int  fact(int n){
+if(n == 0 || n == 1) return 1;
+return n * fact(n-1);
+}
+
+T.C => O(N)
+S.C => O(N)
+
+You are given an integer ‘N’. You have to print the value of Factorial of ‘N’. The Factorial of a number ‘N’ is defined as the product of all numbers from 1 to ‘N’.
+For Example:
+Consider if ‘N’ = 4, the Factorial of 4 will be the product of all numbers from 1 to 4, which is 1 * 2 * 3 * 4 = 24. Hence, the answer is 24.
+
+
