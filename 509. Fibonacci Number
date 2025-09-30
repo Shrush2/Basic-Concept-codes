@@ -1,3 +1,4 @@
+---------------------using recurrsive approach-----------------------
 class Solution {
     public int fib(int n) {
         if(n <= 1){
@@ -10,6 +11,26 @@ class Solution {
     }
 }
 
+
+------------------using iterative approach---------------------------
+class Solution {
+    public int fib(int n) {
+        if(n <= 1){
+            return n;
+        }
+        
+        int prev = 0,curr = 1;
+        for(int i = 2;i <= n; i++){
+            int next = prev + curr;
+            prev = curr;
+            curr = next;
+        }
+        return curr;
+
+        
+        
+    }
+}
 
 The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
 
