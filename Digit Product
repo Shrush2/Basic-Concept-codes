@@ -1,0 +1,40 @@
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+
+	public static int digitProduct(int n) {
+		// Write your code here.
+		ArrayList<Integer> res = new ArrayList<>();
+		for(int i = 9; i >= 2; i--){
+			while(n % i == 0){
+				res.add(i);
+				n = n/i;
+			}
+			
+		}
+
+		if(n > 1){
+			return -1;
+		}
+
+		Collections.sort(res);
+		int num = 0;
+		for(int d : res){
+			num = num * 10 + d;
+		}
+		return num;
+		
+	}
+
+}
+
+Ninja’s friend challenged him with an interesting problem to test his intelligence. His friend gives him the number ‘N’, Ninja’s task is to find the smallest number ‘X’ such that the product of the digits of 
+‘X’ is equal to ‘N’.Can you help Ninja to solve this problem?
+You are given a number ‘N’, you have to find the minimum number ‘X’ such that the product of the digits of ‘X’ is equal to ‘N’.If no such number is found, print -1.
+
+For Example
+If the given number is 36, the smallest number will be 49 as the product of digits is 36 (=4*9).
+
+T.C => O(k Log N)
+S.C => O(Log K)
