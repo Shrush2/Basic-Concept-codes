@@ -1,0 +1,40 @@
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+
+	public static List<List<Integer>> fahrenheitToCelsius(int s, int e, int w) {
+
+	 List<List<Integer>> result = new ArrayList<>();
+
+	 for(int f = s; f <= e; f += w){
+
+		 int c = (f-32) * 5/9;
+		 List<Integer> pair = new ArrayList<>();
+		 pair.add(f);
+		 pair.add(c);
+		 result.add(pair);
+	 }
+	return result;
+
+	}
+}
+
+Ninja has been assigned to convert temperature from Fahrenheit to Celsius. He has been given a starting Fahrenheit Value (S), ending Fahrenheit value (E), and step size (W). 
+Unfortunately, he does not know how to convert from Fahrenheit to Celsius. Please help him to find the result.
+
+S = 0, E = 100, W = 20
+Fahrenheit (F)	Increase by W = 20 each step
+0	Start
+20	0 + 20
+40	20 + 20
+60	40 + 20
+80	60 + 20
+100	80 + 20
+
+So, you print Celsius values for:
+0, 20, 40, 60, 80, 100
+
+T.C => O(N)
+S.C => O(N)
+
