@@ -1,0 +1,25 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int countStories(int x, int y, int z) {
+        // Write your code here.
+        int paidStories = z/y;
+
+        int totalStories = paidStories;
+        int currStories = paidStories;
+
+        while(currStories >= x){
+            int freeStories = currStories / x;
+            totalStories += freeStories;
+            currStories = freeStories + (currStories % x);
+        }
+
+        return totalStories;
+    }
+}
+
+
+Ninja is an avid story lover. Today, he decides to go to the famous Storyteller of Ninjaland to listen to new stories. The Storyteller takes 'Y' coins to tell one story.
+The Storyteller has also put on a special offer for Ninja that for every 'X' story that the Storyteller tells to Ninja, the Storyteller will tell one story to Ninja
+free of cost, i.e., without taking any extra coins. Ninja currently has 'Z' coins with himself. He wants to know how many stories the Storyteller will tell him 
+if he goes to the Storyteller with 'Z' coins.
